@@ -10,7 +10,7 @@ const IMG_TECH_SEO =
 const IMG_LOCAL_SEO =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDeTqrssu82xuHylGiVYxZAZF9HmZi0pzd_pSArp89pmd2SlWDairt8gk0DIYx-WdV12oqvhhWULNQ37oeHkE4EQ3Y-sOYtgNdiNuvF_pf4lzMJVF7k-DReOXScq6bNHAZtKS-WrexIew0uhxDh9nUO4vWGSfYAKi7rVAIIWlFZV6EkWb5fy66An-gi1ZukmskDt7j5m1mdk1nSGf99Zu0xcf-u_a-SsOHOgIivlpy7mRsVBDoIQHQEWzI3YQKW3urFLoLRNRLwR_w";
 
-const wrap = "w-full max-w-7xl mx-auto px-8";
+const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export const metadata = {
   title: "บริการ SEO - AP Digital Agency",
@@ -38,7 +38,7 @@ export default function SEOPage() {
           />
 
           <div className={`${wrap} relative`} style={{ zIndex: 10 }}>
-            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               {/* Left */}
               <div>
                 <div
@@ -50,8 +50,8 @@ export default function SEOPage() {
                 </div>
 
                 <h1
-                  className="text-display leading-tight mb-6"
-                  style={{ fontWeight: 400, fontSize: "3.75rem", color: "#191c1e" }}
+                  className="text-display leading-tight mb-6 text-3xl md:text-[3.75rem]"
+                  style={{ fontWeight: 400, color: "#191c1e" }}
                 >
                   ขับเคลื่อนธุรกิจด้วย{" "}
                   <span style={{ background: "linear-gradient(135deg,#00658d,#00aeef)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
@@ -129,7 +129,7 @@ export default function SEOPage() {
         {/* ── Stats Bento ────────────────────────────────────── */}
         <section className="py-24" style={{ backgroundColor: "#f2f4f6" }}>
           <div className={wrap}>
-            <div className="grid gap-6" style={{ gridTemplateColumns: "2fr 1fr 1fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Big stat */}
               <div
                 className="flex flex-col justify-between p-12 text-white"
@@ -186,8 +186,8 @@ export default function SEOPage() {
 
             <div className="flex flex-col gap-32">
               {/* Service 1: Technical SEO */}
-              <div className="flex gap-20 items-center">
-                <div className="w-1/2 relative">
+              <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-center">
+                <div className="w-full md:w-1/2 relative">
                   <div
                     className="p-4"
                     style={{ backgroundColor: "#e0e3e5", borderRadius: "3rem", transform: "rotate(1deg)" }}
@@ -202,7 +202,7 @@ export default function SEOPage() {
                     />
                   </div>
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <span className="text-[#00658d] text-sm tracking-widest uppercase mb-4 block" style={{ fontWeight: 300 }}>
                     Technical SEO
                   </span>
@@ -226,8 +226,8 @@ export default function SEOPage() {
               </div>
 
               {/* Service 2: Local SEO */}
-              <div className="flex gap-20 items-center" style={{ flexDirection: "row-reverse" }}>
-                <div className="w-1/2 relative">
+              <div className="flex flex-col-reverse md:flex-row-reverse gap-10 md:gap-20 items-center">
+                <div className="w-full md:w-1/2 relative">
                   <div
                     className="p-4"
                     style={{ backgroundColor: "rgba(0,174,239,0.08)", borderRadius: "3rem", transform: "rotate(-1deg)" }}
@@ -242,7 +242,7 @@ export default function SEOPage() {
                     />
                   </div>
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <span className="text-[#00658d] text-sm tracking-widest uppercase mb-4 block" style={{ fontWeight: 300 }}>
                     Southern Thai Mastery
                   </span>
@@ -272,7 +272,7 @@ export default function SEOPage() {
         <section className="py-24" style={{ backgroundColor: "#ffffff", position: "relative" }}>
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,101,141,0.04)", zIndex: 0 }} />
           <div className={`${wrap} relative`} style={{ zIndex: 10 }}>
-            <div className="grid gap-20 items-center" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
               {/* Left: contact info */}
               <div>
                 <h2 className="text-5xl text-[#191c1e] mb-8 leading-tight" style={{ fontWeight: 400 }}>
@@ -312,7 +312,7 @@ export default function SEOPage() {
                 }}
               >
                 <form className="flex flex-col gap-6">
-                  <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { label: "ชื่อ-นามสกุล", placeholder: "จิรายุ สมบัติ", type: "text" },
                       { label: "ชื่อบริษัท", placeholder: "Andaman Resort Group", type: "text" },

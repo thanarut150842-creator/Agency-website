@@ -45,7 +45,7 @@ const caseStudies = [
   },
 ];
 
-const wrap = "w-full max-w-7xl mx-auto px-8";
+const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export default function HomePage() {
   return (
@@ -56,7 +56,7 @@ export default function HomePage() {
         {/* ── Hero ──────────────────────────────────────────────── */}
         <header
           className="relative overflow-hidden bg-[#f7f9fb]"
-          style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "9rem", paddingBottom: "7rem" }}
+          style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "7rem", paddingBottom: "4rem" }}
         >
           {/* BG image */}
           <div className="absolute inset-0 z-0">
@@ -71,10 +71,7 @@ export default function HomePage() {
 
           {/* Content */}
           <div className={`${wrap} relative z-10`}>
-            <div
-              className="grid gap-12 items-center"
-              style={{ gridTemplateColumns: "repeat(2, 1fr)" }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left */}
               <div>
                 <span
@@ -85,7 +82,7 @@ export default function HomePage() {
                 </span>
 
                 <h1
-                  className="text-display text-6xl text-[#191c1e] mb-6 thai-leading"
+                  className="text-display text-4xl md:text-6xl text-[#191c1e] mb-6 thai-leading"
                   style={{ fontWeight: 400 }}
                 >
                   ดิจิตอลเอเจนซี่<br />
@@ -271,7 +268,7 @@ export default function HomePage() {
             </div>
 
             {/* Bento grid – row 1 */}
-            <div className="flex gap-6 mb-6">
+            <div className="flex flex-col md:flex-row gap-6 mb-6">
               {/* Andaman Pulse – 2/3 width */}
               <div
                 className="flex flex-col justify-between p-10 hover:scale-[1.01] transition-all"
@@ -321,7 +318,7 @@ export default function HomePage() {
             </div>
 
             {/* Bento grid – row 2 */}
-            <div className="flex gap-6">
+            <div className="flex flex-col md:flex-row gap-6">
               {/* Local expertise – 1/3 */}
               <div
                 className="flex flex-col justify-between p-10 text-white"
@@ -369,7 +366,7 @@ export default function HomePage() {
         <section className="py-24" style={{ backgroundColor: "#f7f9fb" }}>
           <div className={wrap}>
             {/* Header row */}
-            <div className="flex justify-between items-end mb-16">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
               <div style={{ maxWidth: "40rem" }}>
                 <h2 className="text-display text-4xl mb-4" style={{ fontWeight: 400 }}>
                   ความไว้วางใจที่วัดผลได้
@@ -392,7 +389,7 @@ export default function HomePage() {
             </div>
 
             {/* 3-column cards */}
-            <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {caseStudies.map((c) => (
                 <div key={c.tag} className="group cursor-pointer">
                   <div
@@ -448,7 +445,7 @@ export default function HomePage() {
               style={{
                 backgroundColor: "#3f5881",
                 borderRadius: "1.5rem",
-                padding: "5rem",
+                padding: "clamp(2rem, 5vw, 5rem)",
               }}
             >
               {/* Background image */}

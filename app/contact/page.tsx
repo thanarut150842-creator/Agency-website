@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 const IMG_MAP =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuADEM_pUjYiuQrImYxT0hl7WSDhSS8bo0M8pMuZLLl58cTVhlRwVnz9N3fil8DGiTj21d9VtE3dBA_EzUdcxzLned9Rg3JS7-jTb5iUa82z6peM6sKLB1Zb_NlelFEYQhmXr7hSaAHSuDgv6meyE2hEeayZaWkwNvNfQKarMjrDxwfx6X1vBgiDndEBWUOTougLBcPPllDPirkNTrIXRIQJYpBAQ8ydnMMUGQXP7fD7ras8G3oLt19CQlukPl2Y3pUIia3_Wo61kXY";
 
-const wrap = "w-full max-w-7xl mx-auto px-8";
+const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export const metadata = { title: "ติดต่อเรา - AP Digital Agency" };
 
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <main className="pt-32 pb-20" style={{ backgroundColor: "#f7f9fb" }}>
         <div className={wrap}>
           {/* ── Hero + Form ────────────────────────────────── */}
-          <div className="grid gap-16 items-start mb-32" style={{ gridTemplateColumns: "5fr 7fr" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 md:gap-16 items-start mb-20 md:mb-32">
             {/* Left: content + channels */}
             <div>
               <div className="mb-12">
@@ -92,7 +92,7 @@ export default function ContactPage() {
               </h2>
 
               <form className="flex flex-col gap-6">
-                <div className="grid gap-6" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {[
                     { label: "ชื่อ-นามสกุล", placeholder: "ระบุชื่อของคุณ", type: "text" },
                     { label: "อีเมลติดต่องาน", placeholder: "example@company.com", type: "email" },
@@ -170,7 +170,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="grid gap-8" style={{ gridTemplateColumns: "1fr 1fr", height: "31rem" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8" style={{ minHeight: "20rem" }}>
               {/* Info card */}
               <div
                 className="flex flex-col justify-center p-12 text-white"
@@ -201,7 +201,7 @@ export default function ContactPage() {
               </div>
 
               {/* Map image */}
-              <div className="relative overflow-hidden group" style={{ borderRadius: "2.5rem" }}>
+              <div className="relative overflow-hidden group" style={{ borderRadius: "2.5rem", minHeight: "20rem" }}>
                 <Image
                   src={IMG_MAP}
                   alt="Office location map Bangkok"

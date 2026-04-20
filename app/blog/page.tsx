@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles } from "./data/articles";
 
-const wrap = "w-full max-w-7xl mx-auto px-8";
+const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export const metadata = { title: "บทความ - AP Digital Agency" };
 
@@ -71,7 +71,7 @@ export default function BlogPage() {
             className="group mb-16 overflow-hidden"
             style={{ backgroundColor: "#f2f4f6", borderRadius: "1.5rem" }}
           >
-            <div className="grid" style={{ gridTemplateColumns: "3fr 2fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr]">
               <div className="p-10 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs px-3 py-1 rounded-full uppercase" style={{ backgroundColor: "#d6e3ff", color: "#2d476f", fontWeight: 300 }}>
@@ -97,7 +97,7 @@ export default function BlogPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative overflow-hidden" style={{ minHeight: "22rem" }}>
+              <div className="relative overflow-hidden" style={{ minHeight: "16rem" }}>
                 <Image
                   src={articles[0].image}
                   alt={articles[0].title}
@@ -109,7 +109,7 @@ export default function BlogPage() {
           </article>
 
           {/* ── Article Grid ────────────────────────────────── */}
-          <div className="grid gap-8 mb-16" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {articles.map((a) => (
               <Link
                 key={a.slug}
@@ -178,7 +178,7 @@ export default function BlogPage() {
               borderColor: "rgba(189,200,209,0.1)",
             }}
           >
-            <div className="grid gap-16 items-start" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
               <div>
                 <h2 className="text-4xl text-[#191c1e] mb-6 tracking-tight" style={{ fontWeight: 400 }}>
                   ปรึกษาผู้เชี่ยวชาญ<br />
@@ -210,7 +210,7 @@ export default function BlogPage() {
                 }}
               >
                 <form className="flex flex-col gap-6">
-                  <div className="grid gap-6" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {[
                       { label: "ชื่อ-นามสกุล", id: "name", placeholder: "ระบุชื่อของคุณ", type: "text" },
                       { label: "เบอร์โทรศัพท์", id: "phone", placeholder: "08x-xxx-xxxx", type: "tel" },
