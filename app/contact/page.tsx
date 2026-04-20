@@ -182,8 +182,7 @@ export default function ContactPage() {
                       location_on
                     </span>
                     <p className="text-lg thai-leading" style={{ fontWeight: 200 }}>
-                      ชั้น 24 อาคารสาทรธานี, ถนนสาทรเหนือ,<br />
-                      แขวงสีลม, เขตบางรัก, กรุงเทพมหานคร 10500
+                      14/3 อำเภอเมือง จังหวัดกระบี่ 81000
                     </p>
                   </div>
                   <div className="flex items-center gap-4">
@@ -196,7 +195,7 @@ export default function ContactPage() {
                     How to get here
                   </p>
                   <p className="text-white/90" style={{ fontWeight: 200 }}>
-                    ใกล้ BTS ช่องนนทรี (ทางออก 2) เดินเพียง 3 นาที
+                    อำเภอเมืองกระบี่ จังหวัดกระบี่
                   </p>
                 </div>
               </div>
