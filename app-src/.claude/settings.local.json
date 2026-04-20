@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Read(//usr/bin/**)",
+      "Bash(cygpath -w /usr/bin/bash)",
+      "Bash(\"C:/Git/bin/bash.exe\" --version)",
+      "Bash(gh auth *)",
+      "Bash(winget install *)",
+      "Bash(npm run *)"
+    ]
+  }
+}

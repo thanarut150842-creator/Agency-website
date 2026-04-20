@@ -1,0 +1,23 @@
+# Executables & installers
+*.exe
+*.msi
+
+# Node.js
+Node JS/
+node_modules/
+
+# Next.js
+app-src/.next/
+app-src/out/
+
+# Stitch design files (large source assets)
+stitch-designs/
+
+# Env files
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
