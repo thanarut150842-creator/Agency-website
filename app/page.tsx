@@ -55,141 +55,229 @@ export default function HomePage() {
       <main>
         {/* ── Hero ──────────────────────────────────────────────── */}
         <header
-          className="relative overflow-hidden bg-[#f7f9fb]"
-          style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "7rem", paddingBottom: "4rem" }}
+          className="relative overflow-hidden"
+          style={{ minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: "7.5rem", paddingBottom: "4rem", background: "#f7f9fb" }}
         >
-          {/* BG image */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={IMG_HERO_BG}
-              alt="abstract fluid wave background"
-              fill
-              className="object-cover opacity-15"
-              priority
-            />
+          {/* Background: mesh gradient blobs */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute rounded-full blur-[120px]" style={{ top: "-8rem", right: "-6rem", width: "45rem", height: "45rem", background: "radial-gradient(circle, rgba(0,174,239,0.13) 0%, transparent 70%)" }} />
+            <div className="absolute rounded-full blur-[100px]" style={{ bottom: "-10rem", left: "-8rem", width: "40rem", height: "40rem", background: "radial-gradient(circle, rgba(63,88,129,0.10) 0%, transparent 70%)" }} />
+            <div className="absolute rounded-full blur-[80px]" style={{ top: "30%", left: "30%", width: "20rem", height: "20rem", background: "radial-gradient(circle, rgba(0,101,141,0.06) 0%, transparent 70%)" }} />
+            {/* Subtle dot grid */}
+            <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(0,101,141,0.12) 1px, transparent 1px)", backgroundSize: "36px 36px", opacity: 0.5 }} />
           </div>
 
           {/* Content */}
           <div className={`${wrap} relative z-10`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-              {/* Left */}
-              <div>
-                <span
-                  className="inline-block bg-[#d6e3ff] text-[#2d476f] px-4 py-1.5 rounded-full text-sm tracking-wider mb-6 uppercase"
-                  style={{ fontWeight: 300 }}
-                >
-                  Advanced Performance Agency
-                </span>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-                <h1
-                  className="text-display text-4xl md:text-6xl text-[#191c1e] mb-6 thai-leading"
-                  style={{ fontWeight: 400 }}
+              {/* ── Left: copy ── */}
+              <div>
+                {/* Live badge */}
+                <div
+                  className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-8"
+                  style={{ background: "rgba(0,174,239,0.09)", border: "1px solid rgba(0,174,239,0.22)" }}
                 >
-                  ดิจิตอลเอเจนซี่<br />
-                  การตลาดออนไลน์
-                  <span style={{ color: "#00aeef" }}>ภาคใต้</span>
+                  <span className="w-2 h-2 rounded-full bg-[#00aeef] animate-pulse" />
+                  <span className="text-xs tracking-widest uppercase" style={{ color: "#00658d", fontWeight: 300 }}>
+                    Digital Agency · ภาคใต้
+                  </span>
+                </div>
+
+                {/* Headline */}
+                <h1
+                  className="text-display mb-6 thai-leading"
+                  style={{ fontWeight: 400, fontSize: "clamp(2.6rem, 5.5vw, 4.25rem)", lineHeight: 1.15, color: "#191c1e", letterSpacing: "-0.02em" }}
+                >
+                  พาธุรกิจของคุณ<br />
+                  <span
+                    style={{
+                      background: "linear-gradient(120deg, #00658d 20%, #00aeef 80%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    ทะยานขึ้น
+                  </span>
+                  {" "}ด้วยดิจิทัล
                 </h1>
 
                 <p
                   className="text-lg text-[#3e4850] mb-10 thai-leading"
-                  style={{ fontWeight: 200, maxWidth: "36rem" }}
+                  style={{ fontWeight: 200, maxWidth: "34rem", lineHeight: 1.85 }}
                 >
-                  เราคือพาร์ทเนอร์ด้านการเติบโตแบบดิจิทัลที่เข้าใจบริบทท้องถิ่น
-                  แต่ใช้มาตรฐานระดับสากล เพื่อปลดล็อกศักยภาพธุรกิจของคุณสู่ระดับประเทศ
+                  เราคือพาร์ทเนอร์ดิจิทัลที่เข้าใจบริบทท้องถิ่นภาคใต้อย่างลึกซึ้ง
+                  และใช้มาตรฐานระดับสากลเพื่อขับเคลื่อนการเติบโตที่วัดผลได้จริง
                 </p>
 
+                {/* CTAs */}
                 <div className="flex flex-wrap gap-4 mb-12">
                   <Link
                     href="/contact"
-                    className="flex items-center gap-2 text-white px-8 py-4 rounded-full text-lg transition-all"
+                    className="flex items-center gap-2 text-white px-8 py-4 rounded-full text-base transition-all hover:scale-105 hover:shadow-xl"
                     style={{
                       fontWeight: 300,
-                      backgroundColor: "#00aeef",
-                      boxShadow: "0 20px 40px -10px rgba(0,174,239,0.3)",
+                      background: "linear-gradient(135deg, #00658d 0%, #00aeef 100%)",
+                      boxShadow: "0 16px 40px -8px rgba(0,174,239,0.45)",
                     }}
                   >
-                    <span>Free Audit</span>
-                    <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                      analytics
-                    </span>
+                    รับ Free Audit
+                    <span className="material-symbols-outlined" style={{ fontSize: 18 }}>analytics</span>
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex items-center gap-2 text-[#191c1e] px-8 py-4 rounded-full text-lg transition-all"
-                    style={{ fontWeight: 300, backgroundColor: "#e0e3e5" }}
+                    className="flex items-center gap-2 px-8 py-4 rounded-full text-base transition-all hover:bg-[#d4d7d9]"
+                    style={{ fontWeight: 300, color: "#191c1e", backgroundColor: "#e0e3e5" }}
                   >
-                    <span>ปรึกษาฟรี</span>
-                    <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                      chat_bubble
-                    </span>
+                    ปรึกษาฟรี
+                    <span className="material-symbols-outlined" style={{ fontSize: 18 }}>chat_bubble</span>
                   </Link>
                 </div>
 
                 {/* Stats strip */}
-                <div className="flex gap-8 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                <div className="flex flex-wrap gap-8 pt-8" style={{ borderTop: "1px solid rgba(0,0,0,0.07)" }}>
                   {[
                     { value: "50+", label: "แบรนด์ที่ไว้วางใจ" },
                     { value: "4+", label: "ปีในวงการ" },
                     { value: "98%", label: "ลูกค้าพึงพอใจ" },
                   ].map((s) => (
                     <div key={s.label}>
-                      <p className="text-2xl text-[#00658d]" style={{ fontWeight: 400 }}>{s.value}</p>
-                      <p className="text-sm text-[#3e4850]" style={{ fontWeight: 200 }}>{s.label}</p>
+                      <p className="text-3xl text-[#00658d]" style={{ fontWeight: 400 }}>{s.value}</p>
+                      <p className="text-sm text-[#3e4850] mt-0.5" style={{ fontWeight: 200 }}>{s.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Right: Dashboard image */}
-              <div className="relative">
+              {/* ── Right: floating metric cards ── */}
+              <div className="hidden lg:block relative" style={{ height: "520px" }}>
+
+                {/* Glow ring */}
+                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "380px", height: "380px", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,174,239,0.10) 0%, transparent 70%)" }} />
+                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "420px", height: "420px", borderRadius: "50%", border: "1px dashed rgba(0,101,141,0.15)" }} />
+                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "520px", height: "520px", borderRadius: "50%", border: "1px dashed rgba(0,101,141,0.07)" }} />
+
+                {/* Center: Traffic chart card */}
                 <div
-                  className="absolute -top-10 -left-10 w-32 h-32 rounded-full blur-3xl"
-                  style={{ backgroundColor: "#00b3c8", opacity: 0.3 }}
-                />
-                <div
-                  className="relative overflow-hidden"
+                  className="absolute"
                   style={{
-                    backgroundColor: "#fff",
-                    borderRadius: "1rem",
-                    padding: "8px",
-                    boxShadow: "0 32px 64px -16px rgba(0,33,71,0.12)",
+                    top: "50%", left: "50%", transform: "translate(-50%,-50%)",
+                    width: "230px", background: "#ffffff", borderRadius: "1.5rem",
+                    padding: "1.5rem", boxShadow: "0 32px 64px -16px rgba(0,33,71,0.14)", zIndex: 3
                   }}
                 >
-                  <Image
-                    src={IMG_HERO_DASHBOARD}
-                    alt="data visualization dashboard"
-                    width={640}
-                    height={400}
-                    className="w-full"
-                    style={{ borderRadius: "0.75rem" }}
-                  />
-                </div>
-                {/* Floating badge bottom-right */}
-                <div
-                  className="absolute -bottom-6 -right-6 flex items-center gap-4 text-white p-6 rounded-xl"
-                  style={{ backgroundColor: "#00658d", boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
-                >
-                  <div className="text-4xl" style={{ fontWeight: 400 }}>4+</div>
-                  <div className="text-sm thai-leading" style={{ fontWeight: 200 }}>
-                    ปีแห่งความสำเร็จ<br />ในระดับประเทศ
+                  <p className="text-xs text-[#3e4850] mb-3 uppercase tracking-wider" style={{ fontWeight: 200 }}>Organic Traffic</p>
+                  {/* Mini bar chart */}
+                  <div className="flex items-end gap-1.5 mb-4" style={{ height: "60px" }}>
+                    {[30, 50, 38, 62, 45, 78, 58, 95, 80].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-t"
+                        style={{
+                          height: `${h}%`,
+                          background: i === 7
+                            ? "linear-gradient(to top, #00658d, #00aeef)"
+                            : "rgba(0,101,141,0.10)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <p className="text-2xl text-[#191c1e]" style={{ fontWeight: 400 }}>24,580</p>
+                      <p className="text-xs text-[#3e4850]" style={{ fontWeight: 200 }}>visits / month</p>
+                    </div>
+                    <span
+                      className="text-xs px-2.5 py-1 rounded-full"
+                      style={{ background: "rgba(0,174,239,0.10)", color: "#00658d", fontWeight: 300 }}
+                    >
+                      +240%
+                    </span>
                   </div>
                 </div>
 
-                {/* Floating card top-left */}
+                {/* Top-left: Search rank */}
                 <div
-                  className="absolute -top-4 -left-6 flex items-center gap-3 p-4 rounded-xl"
-                  style={{ backgroundColor: "#ffffff", boxShadow: "0 12px 32px rgba(0,33,71,0.12)" }}
+                  className="absolute"
+                  style={{
+                    top: "4%", left: "0%",
+                    background: "#3f5881", borderRadius: "1.25rem",
+                    padding: "1.25rem 1.5rem", color: "white",
+                    boxShadow: "0 20px 48px -8px rgba(63,88,129,0.35)", zIndex: 4,
+                  }}
                 >
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "rgba(0,174,239,0.12)", color: "#00aeef" }}
-                  >
-                    <span className="material-symbols-outlined" style={{ fontSize: 20 }}>trending_up</span>
+                  <span className="material-symbols-outlined" style={{ color: "#00aeef", fontSize: 22, display: "block", marginBottom: "0.5rem" }}>search</span>
+                  <p className="text-3xl" style={{ fontWeight: 400 }}>
+                    #<span style={{ color: "#00aeef" }}>1</span>
+                  </p>
+                  <p className="text-xs mt-0.5" style={{ fontWeight: 200, opacity: 0.75 }}>Search Ranking</p>
+                </div>
+
+                {/* Top-right: Clients */}
+                <div
+                  className="absolute"
+                  style={{
+                    top: "6%", right: "0%",
+                    background: "#ffffff", borderRadius: "1.25rem",
+                    padding: "1.25rem 1.5rem",
+                    boxShadow: "0 20px 40px -8px rgba(0,33,71,0.10)", zIndex: 4,
+                  }}
+                >
+                  <div className="flex -space-x-2 mb-3">
+                    {["#c6e7ff", "#d6e3ff", "#b0d8f0", "#9cf0ff"].map((c, i) => (
+                      <div key={i} className="w-7 h-7 rounded-full border-2 border-white" style={{ backgroundColor: c }} />
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-xs text-[#3e4850]" style={{ fontWeight: 200 }}>Organic Traffic</p>
-                    <p className="text-lg text-[#191c1e]" style={{ fontWeight: 400 }}>+240%</p>
+                  <p className="text-2xl text-[#191c1e]" style={{ fontWeight: 400 }}>50+</p>
+                  <p className="text-xs text-[#3e4850] mt-0.5" style={{ fontWeight: 200 }}>Happy Clients</p>
+                </div>
+
+                {/* Bottom-left: ROI */}
+                <div
+                  className="absolute"
+                  style={{
+                    bottom: "6%", left: "2%",
+                    background: "linear-gradient(135deg, #00658d 0%, #00aeef 100%)",
+                    borderRadius: "1.25rem", padding: "1.25rem 1.5rem",
+                    color: "white", boxShadow: "0 20px 48px -8px rgba(0,174,239,0.40)", zIndex: 4,
+                  }}
+                >
+                  <span className="material-symbols-outlined" style={{ fontSize: 22, display: "block", marginBottom: "0.5rem" }}>trending_up</span>
+                  <p className="text-3xl" style={{ fontWeight: 400 }}>350%</p>
+                  <p className="text-xs mt-0.5" style={{ fontWeight: 200, opacity: 0.85 }}>Average ROI</p>
+                </div>
+
+                {/* Bottom-right: Satisfaction */}
+                <div
+                  className="absolute"
+                  style={{
+                    bottom: "8%", right: "1%",
+                    background: "#f2f4f6", borderRadius: "1.25rem",
+                    padding: "1.25rem 1.5rem",
+                    boxShadow: "0 12px 32px rgba(0,33,71,0.07)", zIndex: 4,
+                  }}
+                >
+                  <div className="flex gap-0.5 mb-2">
+                    {[1,2,3,4,5].map((i) => (
+                      <span key={i} className="material-symbols-outlined" style={{ fontSize: 14, color: "#FFB800" }}>star</span>
+                    ))}
                   </div>
+                  <p className="text-2xl text-[#191c1e]" style={{ fontWeight: 400 }}>98%</p>
+                  <p className="text-xs text-[#3e4850] mt-0.5" style={{ fontWeight: 200 }}>Satisfaction Rate</p>
+                </div>
+
+                {/* Mid-right: years */}
+                <div
+                  className="absolute"
+                  style={{
+                    top: "42%", right: "-2%",
+                    background: "#ffffff", borderRadius: "1rem",
+                    padding: "1rem 1.25rem", textAlign: "center",
+                    boxShadow: "0 12px 32px rgba(0,33,71,0.09)", zIndex: 4, border: "1px solid rgba(0,101,141,0.08)"
+                  }}
+                >
+                  <p className="text-3xl text-[#00658d]" style={{ fontWeight: 400 }}>4+</p>
+                  <p className="text-xs text-[#3e4850]" style={{ fontWeight: 200 }}>ปีในวงการ</p>
                 </div>
               </div>
             </div>
