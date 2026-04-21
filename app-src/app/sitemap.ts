@@ -73,38 +73,37 @@ const SKIP_DIRS = new Set(["api", "data", "_components", "_lib", "_hooks"]);
 function scanAppDir(dir: string, routePath = ""): string[] {
   const routes: string[] = [];
 
-  let entries: ReturnType<typeof readdirSync>;
   try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return routes;
-  }
+    const entries = readdirSync(dir, { withFileTypes: true });
 
-  // ถ้า directory นี้มี page.tsx → เป็น route
-  const hasPage = entries.some(
-    (e) => e.isFile() && (e.name === "page.tsx" || e.name === "page.ts")
-  );
-  if (hasPage) routes.push(routePath === "" ? "/" : routePath);
+    // ถ้า directory นี้มี page.tsx → เป็น route
+    const hasPage = entries.some(
+      (e) => e.isFile() && (e.name === "page.tsx" || e.name === "page.ts")
+    );
+    if (hasPage) routes.push(routePath === "" ? "/" : routePath);
 
-  for (const entry of entries) {
-    if (!entry.isDirectory()) continue;
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
 
-    const seg = entry.name;
+      const seg = entry.name;
 
-    // Skip internal directories
-    if (seg.startsWith("_") || SKIP_DIRS.has(seg)) continue;
+      // Skip internal directories
+      if (seg.startsWith("_") || SKIP_DIRS.has(seg)) continue;
 
-    const childDir = join(dir, seg);
+      const childDir = join(dir, seg);
 
-    if (seg.startsWith("[") && seg.endsWith("]")) {
-      // Dynamic segment → expand ด้วย dynamicSegments map
-      const values = dynamicSegments[seg] ?? [];
-      for (const val of values) {
-        routes.push(...scanAppDir(childDir, `${routePath}/${val}`));
+      if (seg.startsWith("[") && seg.endsWith("]")) {
+        // Dynamic segment → expand ด้วย dynamicSegments map
+        const values = dynamicSegments[seg] ?? [];
+        for (const val of values) {
+          routes.push(...scanAppDir(childDir, `${routePath}/${val}`));
+        }
+      } else {
+        routes.push(...scanAppDir(childDir, `${routePath}/${seg}`));
       }
-    } else {
-      routes.push(...scanAppDir(childDir, `${routePath}/${seg}`));
     }
+  } catch {
+    // directory อ่านไม่ได้ — ข้ามไป
   }
 
   return routes;
