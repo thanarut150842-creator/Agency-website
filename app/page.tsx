@@ -12,7 +12,7 @@ const IMG_BENTO_OCEAN =
 const IMG_CASE_VILLA =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuB3GgrvoHtB_uhBh3C3Mxboa1RKU7_Gy6wnOHAZXwH1dVmKlrJ241-dJFOwX6SzX7PjMTJeRN7-NNBM48B9d_cwSPRWftjxeK-zbzdXC8XckxfSeMYua9FoUtE2oThcLi6N83pPBzt_n48cJEMwG5QKAAQ-7KvsG0p5JJBTfaceqDd3Sii_AWBoHK0OgvDu7oR7RoIVhNkrDsXo6fc_AmLPIQpYPJ82qEp9tWEQyJ4SJqrMKYgfhFoaU5oY671rpUl_lByS-MRafsI";
 const IMG_CASE_ECOM =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDF9vMf2T7TwUPhXhCcLw9-zDkRrunBRgEXEBKLxNpkeO1pibGI734KaEPacNWR3QNMkcO7DFSt5uO-poWmexulR1GEOYYRooqH3c6dZAXla1VeOv4nJ6uwMS79koWi5o04jruZdhX_i8zbFJYVjavKH9cugAJ8YDkPNmf4pOSI1F_j-15d_LseYOev--wo";
+  "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80";
 const IMG_CASE_TOURISM =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAzY1X2VQNqwo85ks_PNPMb9d2ekhI8Ji_RZKO9i69VHprKORfZk1CXBG0xI-xcLupAGIEz8lBMiuxr7lem8F8DagEdWPZXM-CQnYNv8C7et06rZB7_SMdUzPNRh3kz-A5fJfaS3R2prXRBrAENcCbrUDo2Q2jTSYvqz2vyrmO6k8kcT5LaiJTF8WU7ZA6KsE6K6JPqpRqLfV5Yg_4k2pByZ0H9_B3Wda_aV-Me-SfwzMEcKjpeiBT9iPK_-j1R6tkQR4YeKCQU9w0";
 const IMG_CTA_BG =
