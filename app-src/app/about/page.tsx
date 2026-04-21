@@ -27,7 +27,7 @@ const teamMembers = [
   },
 ];
 
-const wrap = "w-full max-w-7xl mx-auto px-8";
+const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export const metadata = { title: "เกี่ยวกับเรา - AP Digital Agency" };
 
@@ -39,15 +39,15 @@ export default function AboutPage() {
         {/* ── Hero: Origin Story ───────────────────────────── */}
         <section className="relative overflow-hidden pt-32 pb-32" style={{ backgroundColor: "#f7f9fb" }}>
           <div className={wrap}>
-            <div className="grid gap-16 items-center" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               {/* Left */}
               <div style={{ zIndex: 10 }}>
                 <span className="text-[#00658d] tracking-[0.2em] text-xs mb-4 block uppercase" style={{ fontWeight: 300 }}>
                   OUR ORIGIN STORY
                 </span>
                 <h1
-                  className="text-display mb-8 leading-tight"
-                  style={{ fontWeight: 400, fontSize: "3.5rem", color: "#191c1e" }}
+                  className="text-display mb-8 leading-tight text-3xl md:text-[3.5rem]"
+                  style={{ fontWeight: 400, color: "#191c1e" }}
                 >
                   จากแสงสีในกรุงเทพฯ สู่{" "}
                   <span style={{ color: "#00658d" }}>เกลียวคลื่น</span> แห่งภาคใต้
@@ -97,7 +97,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Data-Driven */}
               <div
                 className="p-10 hover:shadow-xl transition-all duration-300"
@@ -158,7 +158,7 @@ export default function AboutPage() {
         {/* ── Team ────────────────────────────────────────── */}
         <section className="py-32 overflow-hidden" style={{ backgroundColor: "#f7f9fb" }}>
           <div className={wrap}>
-            <div className="flex justify-between items-end mb-16">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-16">
               <div style={{ maxWidth: "40rem" }}>
                 <h2 className="text-4xl mb-6" style={{ fontWeight: 400 }}>
                   Guided by Experts,<br />
@@ -171,7 +171,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {teamMembers.map((m) => (
                 <div
                   key={m.name}

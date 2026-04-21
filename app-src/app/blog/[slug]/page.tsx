@@ -32,7 +32,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <main className="pt-32 pb-20" style={{ backgroundColor: "#f7f9fb" }}>
 
         {/* ── Article Header ───────────────────────── */}
-        <div className="w-full max-w-7xl mx-auto px-8 mb-16">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 mb-16">
           <div className="mb-6">
             <Link
               href="/blog"
@@ -82,18 +82,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
 
           {/* Hero Image */}
-          <div className="relative overflow-hidden" style={{ borderRadius: "2rem", height: "28rem" }}>
+          <div className="relative overflow-hidden" style={{ borderRadius: "2rem", height: "clamp(14rem, 35vw, 28rem)" }}>
             <Image src={article.image} alt={article.title} fill className="object-cover" priority />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(0,33,71,0.15))" }} />
           </div>
         </div>
 
         {/* ── Main Content Grid ─────────────────────── */}
-        <div className="w-full max-w-7xl mx-auto px-8">
-          <div className="grid gap-10" style={{ gridTemplateColumns: "2fr 7fr 3fr" }}>
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+          <div className="grid gap-10 grid-cols-1 lg:grid-cols-[2fr_7fr_3fr]">
 
-            {/* Left Sidebar: TOC */}
-            <aside>
+            {/* Left Sidebar: TOC – hidden on mobile */}
+            <aside className="hidden lg:block">
               <div
                 className="sticky"
                 style={{ top: "6rem", backgroundColor: "#ffffff", borderRadius: "1.5rem", padding: "1.5rem", boxShadow: "0 4px 24px rgba(0,33,71,0.06)" }}
@@ -118,7 +118,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
             {/* Article Body */}
             <article>
-              <div style={{ backgroundColor: "#ffffff", borderRadius: "2rem", padding: "3rem", boxShadow: "0 4px 40px rgba(0,33,71,0.06)" }}>
+              <div style={{ backgroundColor: "#ffffff", borderRadius: "2rem", padding: "clamp(1.25rem, 4vw, 3rem)", boxShadow: "0 4px 40px rgba(0,33,71,0.06)" }}>
 
                 {/* Intro */}
                 <p className="text-lg text-[#3e4850] thai-leading mb-10" style={{ fontWeight: 200, lineHeight: 1.8, borderLeft: "4px solid #00aeef", paddingLeft: "1.5rem" }}>
@@ -202,7 +202,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </article>
 
             {/* Right Sidebar */}
-            <aside className="flex flex-col gap-6">
+            <aside className="hidden lg:flex flex-col gap-6">
               <div className="p-8 text-white" style={{ backgroundColor: "#3f5881", borderRadius: "1.5rem" }}>
                 <span className="material-symbols-outlined mb-4" style={{ color: "#00aeef", fontSize: 32 }}>rocket_launch</span>
                 <h3 className="text-xl mb-3" style={{ fontWeight: 400 }}>พร้อมเริ่มต้นกับเรา?</h3>
@@ -241,7 +241,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* ── Related Posts ─────────────────────────── */}
           <section className="mt-20">
             <h2 className="text-3xl mb-10" style={{ fontWeight: 400, color: "#191c1e" }}>บทความที่เกี่ยวข้อง</h2>
-            <div className="grid gap-8" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {related.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group block" style={{ textDecoration: "none" }}>
                   <div className="overflow-hidden" style={{ backgroundColor: "#ffffff", borderRadius: "1.5rem", boxShadow: "0 4px 24px rgba(0,33,71,0.06)" }}>
@@ -265,7 +265,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </section>
 
           {/* ── CTA Banner ───────────────────────────── */}
-          <section className="mt-20 p-16 text-white text-center" style={{ backgroundColor: "#3f5881", borderRadius: "2.5rem" }}>
+          <section className="mt-20 text-white text-center" style={{ backgroundColor: "#3f5881", borderRadius: "2.5rem", padding: "clamp(2rem, 5vw, 4rem)" }}>
             <h2 className="text-4xl mb-4" style={{ fontWeight: 400 }}>พร้อมให้ Digital Tide ทำงานเพื่อคุณ?</h2>
             <p className="text-white/80 text-lg mb-10 thai-leading" style={{ fontWeight: 200, maxWidth: "32rem", margin: "0 auto 2.5rem" }}>
               ปรึกษาฟรีกับผู้เชี่ยวชาญของเราวันนี้ ไม่มีข้อผูกมัด
