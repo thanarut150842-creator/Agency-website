@@ -7,6 +7,7 @@ import { useState } from "react";
 const navLinks = [
   { label: "หน้าแรก", href: "/" },
   { label: "บริการ SEO", href: "/services/seo" },
+  { label: "บริการ Ads", href: "/services/ads" },
   { label: "บทความ", href: "/blog" },
   { label: "เกี่ยวกับเรา", href: "/about" },
   { label: "ติดต่อเรา", href: "/contact" },
