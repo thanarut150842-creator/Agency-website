@@ -10,6 +10,9 @@ const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 export const metadata = {
   title: "ติดต่อ AP Digital | รับทำ SEO ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่",
   description: "ติดต่อ AP Digital Agency ผู้เชี่ยวชาญรับทำ SEO และ Digital Marketing สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ ปรึกษาฟรีไม่มีข้อผูกมัด ตอบกลับภายใน 24 ชั่วโมง",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

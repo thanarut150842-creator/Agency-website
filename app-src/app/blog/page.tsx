@@ -9,6 +9,9 @@ const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 export const metadata = {
   title: "บทความ SEO & Digital Marketing ภาคใต้ | AP Digital Agency",
   description: "อัปเดตเทรนด์และกลยุทธ์ SEO การตลาดดิจิทัลสำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ คลังความรู้จากทีมผู้เชี่ยวชาญ AP Digital Agency",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

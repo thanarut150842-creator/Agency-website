@@ -8,6 +8,9 @@ export const metadata = {
   title: "รับทำ SEO ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่ | AP Digital Agency",
   description:
     "รับทำ SEO ภาคใต้ครบวงจร ติดอันดับ Google สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ Technical SEO · Local SEO · Content Strategy · Link Building วัดผลได้ทุกขั้นตอน ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/services/seo",
+  },
 };
 
 const color = "#00658d";

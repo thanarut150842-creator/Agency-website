@@ -10,9 +10,15 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://app-src-alpha.vercel.app"
+  ),
   title: "รับทำ SEO ภาคใต้ | AP Digital Agency ภูเก็ต กระบี่ หาดใหญ่",
   description:
     "AP Digital Agency รับทำ SEO และการตลาดออนไลน์ครบวงจรสำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ ติดอันดับ Google ด้วยกลยุทธ์วัดผลได้จริง ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

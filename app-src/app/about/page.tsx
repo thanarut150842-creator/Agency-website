@@ -32,6 +32,9 @@ const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 export const metadata = {
   title: "เกี่ยวกับ AP Digital | Digital Agency ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่",
   description: "AP Digital คือ Digital Agency ภาคใต้ ที่นำประสบการณ์จากเอเจนซี่ชั้นนำมาสร้างผลลัพธ์จริงให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ ด้วยทีมผู้เชี่ยวชาญ SEO และการตลาดดิจิทัลครบวงจร",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

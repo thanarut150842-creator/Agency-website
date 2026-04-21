@@ -8,6 +8,9 @@ export const metadata = {
   title: "รับทำ TikTok Ads ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่ | AP Digital Agency",
   description:
     "รับทำ TikTok Ads สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ เจาะกลุ่ม Gen Z และ Millennials ด้วย Creative วิดีโอที่ Viral ได้จริง วัดผลได้ทุกบาท ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/services/ads/tiktok-ads",
+  },
 };
 
 const color = "#191c1e";

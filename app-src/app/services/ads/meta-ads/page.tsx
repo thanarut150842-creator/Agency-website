@@ -8,6 +8,9 @@ export const metadata = {
   title: "รับทำ Meta Ads Facebook Instagram ภาคใต้ | AP Digital Agency ภูเก็ต กระบี่ หาดใหญ่",
   description:
     "รับทำ Meta Ads (Facebook Ads & Instagram Ads) สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ สร้าง Brand Awareness ปิดการขาย และ Generate Lead ด้วยโฆษณาที่วัดผลได้ ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/services/ads/meta-ads",
+  },
 };
 
 const color = "#0081FB";

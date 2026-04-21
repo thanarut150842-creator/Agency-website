@@ -8,6 +8,9 @@ export const metadata = {
   title: "รับทำโฆษณาออนไลน์ Google Meta TikTok Ads ภาคใต้ | AP Digital Agency",
   description:
     "รับทำโฆษณาออนไลน์ครบวงจร Google Ads, Meta Ads (Facebook & Instagram), TikTok Ads สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ วัดผลได้ทุกบาท ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/services/ads",
+  },
 };
 
 const platforms = [

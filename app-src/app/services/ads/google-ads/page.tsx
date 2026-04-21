@@ -8,6 +8,9 @@ export const metadata = {
   title: "รับทำ Google Ads ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่ | AP Digital Agency",
   description:
     "รับทำ Google Ads สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ วางแผน Keyword เขียน Ad Copy ตั้ง Bidding Strategy และ Optimize แบบ Real-time เพื่อ ROAS สูงสุด ปรึกษาฟรีไม่มีข้อผูกมัด",
+  alternates: {
+    canonical: "/services/ads/google-ads",
+  },
 };
 
 const color = "#4285F4";
