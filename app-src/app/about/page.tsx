@@ -29,7 +29,10 @@ const teamMembers = [
 
 const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
-export const metadata = { title: "เกี่ยวกับเรา - AP Digital Agency" };
+export const metadata = {
+  title: "เกี่ยวกับ AP Digital | Digital Agency ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่",
+  description: "AP Digital คือ Digital Agency ภาคใต้ ที่นำประสบการณ์จากเอเจนซี่ชั้นนำมาสร้างผลลัพธ์จริงให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ ด้วยทีมผู้เชี่ยวชาญ SEO และการตลาดดิจิทัลครบวงจร",
+};
 
 export default function AboutPage() {
   return (
@@ -43,25 +46,24 @@ export default function AboutPage() {
               {/* Left */}
               <div style={{ zIndex: 10 }}>
                 <span className="text-[#00658d] tracking-[0.2em] text-xs mb-4 block uppercase" style={{ fontWeight: 300 }}>
-                  OUR ORIGIN STORY
+                  DIGITAL AGENCY · ภูเก็ต | กระบี่ | หาดใหญ่
                 </span>
                 <h1
                   className="text-display mb-8 leading-tight text-3xl md:text-[3.5rem]"
                   style={{ fontWeight: 400, color: "#191c1e" }}
                 >
-                  จากแสงสีในกรุงเทพฯ สู่{" "}
-                  <span style={{ color: "#00658d" }}>เกลียวคลื่น</span> แห่งภาคใต้
+                  Digital Agency{" "}
+                  <span style={{ color: "#00658d" }}>ภาคใต้</span> ที่เข้าใจตลาดมากกว่าใคร
                 </h1>
                 <p className="text-lg text-[#3e4850] mb-10 thai-leading" style={{ fontWeight: 200, maxWidth: "36rem" }}>
-                  เราเริ่มต้นจากการเป็นฟันเฟืองเล็กๆ ในเอเจนซี่ระดับโลกที่กรุงเทพฯ
-                  แต่หัวใจของเรามักโหยหาบ้านเกิดและความสงบของทะเลอันดามัน
-                  AP Digital จึงถือกำเนิดขึ้นเพื่อนำความเชี่ยวชาญระดับสากล
-                  กลับมาสร้างความเติบโตให้กับธุรกิจในบ้านเรา
+                  AP Digital คือ Digital Agency ภาคใต้ ที่ก่อตั้งโดยทีมงานผู้เชี่ยวชาญ SEO
+                  จากเอเจนซี่ชั้นนำในกรุงเทพฯ เพื่อนำกลยุทธ์ระดับสากลมาสร้างผลลัพธ์จริง
+                  ให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ พังงา และทั่วภาคใต้
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-0.5" style={{ backgroundColor: "#00658d" }} />
                   <em className="text-[#191c1e]" style={{ fontWeight: 300 }}>
-                    "เพราะเราเชื่อว่าธุรกิจท้องถิ่นมีศักยภาพที่ไร้ขีดจำกัด"
+                    "เพราะเราเชื่อว่าธุรกิจภาคใต้มีศักยภาพที่ไร้ขีดจำกัด เพียงแค่ต้องการพาร์ทเนอร์ที่ถูกต้อง"
                   </em>
                 </div>
               </div>

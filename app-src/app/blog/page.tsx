@@ -6,7 +6,10 @@ import { articles } from "./data/articles";
 
 const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
-export const metadata = { title: "บทความ - AP Digital Agency" };
+export const metadata = {
+  title: "บทความ SEO & Digital Marketing ภาคใต้ | AP Digital Agency",
+  description: "อัปเดตเทรนด์และกลยุทธ์ SEO การตลาดดิจิทัลสำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ คลังความรู้จากทีมผู้เชี่ยวชาญ AP Digital Agency",
+};
 
 export default function BlogPage() {
   return (
@@ -24,12 +27,12 @@ export default function BlogPage() {
               KNOWLEDGE HUB
             </div>
             <h1 className="text-5xl text-[#191c1e] leading-tight mb-6 tracking-tight" style={{ fontWeight: 400 }}>
-              คลังความรู้
-              <span style={{ color: "#00aeef" }}>การตลาดดิจิทัล</span>
+              คลังความรู้ SEO &{" "}
+              <span style={{ color: "#00aeef" }}>Digital Marketing ภาคใต้</span>
             </h1>
             <p className="text-lg text-[#3e4850] leading-relaxed" style={{ fontWeight: 200 }}>
-              อัปเดตเทรนด์ กลยุทธ์ และเทคนิคการทำ Digital Marketing
-              เพื่อขับเคลื่อนธุรกิจของคุณสู่ความสำเร็จในยุคดิจิทัลอย่างยั่งยืน
+              อัปเดตเทรนด์และกลยุทธ์ SEO การตลาดออนไลน์สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่
+              และทั่วภาคใต้ โดยทีมผู้เชี่ยวชาญ AP Digital Agency
             </p>
           </header>
 

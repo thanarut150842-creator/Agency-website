@@ -10,9 +10,9 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: "AP Digital | Advanced Performance Digital Agency",
+  title: "รับทำ SEO ภาคใต้ | AP Digital Agency ภูเก็ต กระบี่ หาดใหญ่",
   description:
-    "พาร์ทเนอร์ด้านการเติบโตแบบดิจิทัลที่เข้าใจบริบทท้องถิ่น ให้บริการ SEO และการตลาดออนไลน์ครบวงจร",
+    "AP Digital Agency รับทำ SEO และการตลาดออนไลน์ครบวงจรสำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ ติดอันดับ Google ด้วยกลยุทธ์วัดผลได้จริง ปรึกษาฟรีไม่มีข้อผูกมัด",
 };
 
 export default function RootLayout({

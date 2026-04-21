@@ -7,7 +7,10 @@ const IMG_MAP =
 
 const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
-export const metadata = { title: "ติดต่อเรา - AP Digital Agency" };
+export const metadata = {
+  title: "ติดต่อ AP Digital | รับทำ SEO ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่",
+  description: "ติดต่อ AP Digital Agency ผู้เชี่ยวชาญรับทำ SEO และ Digital Marketing สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ ปรึกษาฟรีไม่มีข้อผูกมัด ตอบกลับภายใน 24 ชั่วโมง",
+};
 
 export default function ContactPage() {
   return (
@@ -24,19 +27,19 @@ export default function ContactPage() {
                   className="inline-block px-4 py-1.5 rounded-full text-xs tracking-widest uppercase mb-6"
                   style={{ backgroundColor: "#d6e3ff", color: "#2d476f", fontWeight: 300 }}
                 >
-                  Contact Us
+                  รับทำ SEO & Digital Marketing · ภาคใต้
                 </span>
                 <h1
                   className="text-display mb-6 thai-leading"
                   style={{ fontWeight: 400, fontSize: "3.5rem", color: "#191c1e" }}
                 >
-                  มาสร้าง{" "}
-                  <span style={{ color: "#00658d" }}>Digital Tide</span>{" "}
-                  ไปพร้อมกับเรา
+                  ติดต่อ{" "}
+                  <span style={{ color: "#00658d" }}>ผู้เชี่ยวชาญ SEO</span>{" "}
+                  ภาคใต้ของเรา
                 </h1>
                 <p className="text-lg text-[#3e4850] thai-leading" style={{ fontWeight: 200 }}>
-                  ปลดล็อกศักยภาพทางธุรกิจของคุณด้วยกลยุทธ์ดิจิทัลที่แม่นยำ
-                  ทีมผู้เชี่ยวชาญของเราพร้อมให้คำปรึกษาและช่วยคุณเติบโตอย่างยั่งยืน
+                  ให้ทีมผู้เชี่ยวชาญ SEO ภาคใต้ของเราวิเคราะห์เว็บไซต์และวางแผน Keyword ฟรี
+                  สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ พังงา สุราษฎร์ธานี และทั่วภาคใต้
                 </p>
               </div>
 

@@ -22,10 +22,10 @@ const caseStudies = [
   {
     img: IMG_CASE_VILLA,
     alt: "luxury beachfront villa",
-    tag: "REAL ESTATE",
+    tag: "REAL ESTATE · ภูเก็ต",
     kpi: "ROI +350%",
-    title: "แคมเปญกระตุ้นยอดขายโครงการบ้านพักตากอากาศระดับ High-end",
-    desc: "กลยุทธ์ SEO และ FB Ads เจาะกลุ่มลูกค้ากำลังซื้อสูงจากกรุงเทพฯ และต่างประเทศ",
+    title: "SEO และ Ads ยกระดับโครงการบ้านพักตากอากาศ High-end ภูเก็ต",
+    desc: "กลยุทธ์ SEO ภาคใต้ และ FB Ads เจาะกลุ่มลูกค้ากำลังซื้อสูงจากกรุงเทพฯ และต่างประเทศ ติดอันดับ 1 สำหรับ keyword ที่เกี่ยวข้อง",
   },
   {
     img: IMG_CASE_ECOM,
@@ -38,10 +38,10 @@ const caseStudies = [
   {
     img: IMG_CASE_TOURISM,
     alt: "tropical tourism long-tail boat",
-    tag: "TOURISM",
+    tag: "TOURISM · กระบี่",
     kpi: "Lead +120%",
-    title: "ยกระดับแบรนด์ทัวร์ท้องถิ่นสู่แพลตฟอร์มการจองระดับสากล",
-    desc: "ใช้ Content Marketing สื่อสารคุณค่าที่เป็นเอกลักษณ์ผ่านภาพลักษณ์พรีเมียม",
+    title: "Local SEO กระบี่ ดันแบรนด์ทัวร์ท้องถิ่นสู่แพลตฟอร์มจองระดับสากล",
+    desc: "ใช้ Local SEO และ Content Marketing สร้างการมองเห็นใน Google Maps และ Search สำหรับนักท่องเที่ยวต่างชาติ",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function HomePage() {
                 >
                   <span className="w-2 h-2 rounded-full bg-[#00aeef] animate-pulse" />
                   <span className="text-xs tracking-widest uppercase" style={{ color: "#00658d", fontWeight: 300 }}>
-                    Digital Agency · ภาคใต้
+                    รับทำ SEO · ภูเก็ต | กระบี่ | หาดใหญ่
                   </span>
                 </div>
 
@@ -89,7 +89,7 @@ export default function HomePage() {
                   className="text-display mb-6 thai-leading"
                   style={{ fontWeight: 400, fontSize: "clamp(2.6rem, 5.5vw, 4.25rem)", lineHeight: 1.15, color: "#191c1e", letterSpacing: "-0.02em" }}
                 >
-                  พาธุรกิจของคุณ<br />
+                  พาธุรกิจ<span style={{ color: "#00658d" }}>ภาคใต้</span>ของคุณ<br />
                   <span
                     style={{
                       background: "linear-gradient(120deg, #00658d 20%, #00aeef 80%)",
@@ -97,17 +97,17 @@ export default function HomePage() {
                       WebkitTextFillColor: "transparent",
                     }}
                   >
-                    ทะยานขึ้น
+                    ติดอันดับ 1
                   </span>
-                  {" "}ด้วยดิจิทัล
+                  {" "}บน Google
                 </h1>
 
                 <p
                   className="text-lg text-[#3e4850] mb-10 thai-leading"
                   style={{ fontWeight: 200, maxWidth: "34rem", lineHeight: 1.85 }}
                 >
-                  เราคือพาร์ทเนอร์ดิจิทัลที่เข้าใจบริบทท้องถิ่นภาคใต้อย่างลึกซึ้ง
-                  และใช้มาตรฐานระดับสากลเพื่อขับเคลื่อนการเติบโตที่วัดผลได้จริง
+                  บริษัท SEO และ Digital Agency ภาคใต้ ที่เชี่ยวชาญการตลาดออนไลน์
+                  สำหรับธุรกิจในภูเก็ต กระบี่ และหาดใหญ่ ด้วยกลยุทธ์ที่วัดผลได้จริงและมาตรฐานระดับสากล
                 </p>
 
                 {/* CTAs */}
@@ -371,10 +371,10 @@ export default function HomePage() {
             {/* Section header */}
             <div className="text-center mb-16" style={{ maxWidth: "48rem", margin: "0 auto 4rem" }}>
               <h2 className="text-display text-4xl mb-4" style={{ fontWeight: 400 }}>
-                วิสัยทัศน์และการขับเคลื่อน
+                ทำไมธุรกิจภาคใต้ถึงเลือก AP Digital
               </h2>
               <p className="text-[#3e4850] thai-leading" style={{ fontWeight: 200 }}>
-                เราไม่ได้แค่ทำโฆษณา แต่เราสร้างโครงสร้างพื้นฐานดิจิทัลที่ยั่งยืนสำหรับธุรกิจภาคใต้
+                เราไม่ได้แค่รับทำ SEO แต่สร้างโครงสร้างดิจิทัลที่ยั่งยืนให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้
               </p>
             </div>
 
@@ -441,7 +441,7 @@ export default function HomePage() {
                     ความเชี่ยวชาญท้องถิ่น
                   </h4>
                   <p className="thai-leading" style={{ fontWeight: 200, opacity: 0.7 }}>
-                    เข้าถึง Insights ของคนใต้ เข้าใจพฤติกรรมการซื้อที่แตกต่าง
+                    รู้จักตลาดภูเก็ต กระบี่ หาดใหญ่ อย่างลึกซึ้ง เข้าใจพฤติกรรมผู้บริโภคภาคใต้เพื่อกลยุทธ์ที่ตรงจุด
                   </p>
                 </div>
               </div>
@@ -456,7 +456,7 @@ export default function HomePage() {
                     มาตรฐานระดับประเทศ
                   </h4>
                   <p className="text-[#3e4850] thai-leading" style={{ fontWeight: 200 }}>
-                    ประสบการณ์ดูแลแบรนด์ชั้นนำในกรุงเทพฯ ถูกนำมาปรับใช้เพื่อยกระดับธุรกิจในท้องถิ่น
+                    ประสบการณ์จากเอเจนซี่ชั้นนำในกรุงเทพฯ ถูกนำมาสร้างผลลัพธ์จริงให้ธุรกิจในภาคใต้
                   </p>
                 </div>
                 <div className="hidden md:flex gap-4" style={{ flex: 1 }}>
@@ -572,15 +572,15 @@ export default function HomePage() {
                   className="text-display mb-6 thai-leading"
                   style={{ fontWeight: 400, fontSize: "2.75rem" }}
                 >
-                  พร้อมจะพาทะยานไปข้างหน้า<br />
-                  กับพาร์ทเนอร์ที่รู้ใจหรือยัง?
+                  พร้อมติดอันดับ 1 บน Google<br />
+                  กับ Digital Agency ภาคใต้ที่รู้ใจ?
                 </h2>
                 <p
                   className="text-xl mb-10 thai-leading"
                   style={{ fontWeight: 200, opacity: 0.8 }}
                 >
-                  ให้ทีมผู้เชี่ยวชาญของเราวิเคราะห์ธุรกิจของคุณฟรี
-                  โดยไม่มีค่าใช้จ่ายและข้อผูกมัดใดๆ
+                  ให้ผู้เชี่ยวชาญ SEO ภาคใต้ของเรา วิเคราะห์เว็บไซต์และวางแผนกลยุทธ์ให้ฟรี
+                  สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ ไม่มีข้อผูกมัด
                 </p>
                 <div className="flex flex-wrap items-center gap-6">
                   <Link

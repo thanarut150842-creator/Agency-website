@@ -13,7 +13,8 @@ const IMG_LOCAL_SEO =
 const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
 export const metadata = {
-  title: "บริการ SEO - AP Digital Agency",
+  title: "รับทำ SEO ภาคใต้ ภูเก็ต กระบี่ หาดใหญ่ | AP Digital Agency",
+  description: "รับทำ SEO ภาคใต้ ครบวงจร ติดอันดับ Google สำหรับธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้ Technical SEO · Local SEO · Content Strategy วิเคราะห์ฟรีไม่มีข้อผูกมัด",
 };
 
 export default function SEOPage() {
@@ -46,23 +47,23 @@ export default function SEOPage() {
                   style={{ backgroundColor: "#d6e3ff", color: "#2d476f", fontWeight: 300 }}
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: 16 }}>trending_up</span>
-                  SEO STRATEGISTS FOR THE SOUTH
+                  รับทำ SEO ภูเก็ต · กระบี่ · หาดใหญ่ · ทั่วภาคใต้
                 </div>
 
                 <h1
                   className="text-display leading-tight mb-6 text-3xl md:text-[3.75rem]"
                   style={{ fontWeight: 400, color: "#191c1e" }}
                 >
-                  ขับเคลื่อนธุรกิจด้วย{" "}
+                  รับทำ{" "}
                   <span style={{ background: "linear-gradient(135deg,#00658d,#00aeef)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                    Digital Tide
-                  </span>{" "}
-                  <br />แห่งการทำ SEO
+                    SEO ภาคใต้
+                  </span>
+                  <br />ติดอันดับ Google วัดผลได้จริง
                 </h1>
 
                 <p className="text-xl mb-10 thai-leading" style={{ fontWeight: 200, color: "#3e4850", maxWidth: "36rem" }}>
-                  เราไม่ได้แค่ทำอันดับ แต่เราสร้าง "กระแส" ที่ยั่งยืนให้แบรนด์ของคุณในภาคใต้และทั่วประเทศ
-                  ด้วยกลยุทธ์ที่แม่นยำดุจเข็มทิศเดินเรือ
+                  บริษัทรับทำ SEO ภาคใต้ ที่สร้างผลลัพธ์จริงให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่
+                  ด้วยกลยุทธ์ที่แม่นยำและวัดผลได้ในทุกขั้นตอน
                 </p>
 
                 <div className="flex gap-4">
@@ -139,7 +140,7 @@ export default function SEOPage() {
                 <div>
                   <h3 className="text-5xl mb-2" style={{ fontWeight: 400 }}>15k+</h3>
                   <p className="text-lg thai-leading" style={{ fontWeight: 200, opacity: 0.8 }}>
-                    Keywords ที่ติดอันดับหน้าแรกให้กับลูกค้าธุรกิจท้องถิ่น
+                    Keywords ที่ติดอันดับหน้าแรกให้ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ และทั่วภาคใต้
                   </p>
                 </div>
               </div>
@@ -164,7 +165,7 @@ export default function SEOPage() {
                 <span className="material-symbols-outlined text-4xl" style={{ color: "#006875" }}>group</span>
                 <div>
                   <h3 className="text-4xl text-[#191c1e]" style={{ fontWeight: 400 }}>50+</h3>
-                  <p className="text-sm text-[#3e4850] mt-2" style={{ fontWeight: 200 }}>พาร์ทเนอร์ธุรกิจในภูเก็ต กระบี่ และพังงา</p>
+                  <p className="text-sm text-[#3e4850] mt-2" style={{ fontWeight: 200 }}>พาร์ทเนอร์ธุรกิจในภูเก็ต กระบี่ หาดใหญ่ พังงา และทั่วภาคใต้</p>
                 </div>
               </div>
             </div>
@@ -176,11 +177,11 @@ export default function SEOPage() {
           <div className={wrap}>
             <div className="mb-20" style={{ maxWidth: "40rem" }}>
               <h2 className="text-4xl mb-6" style={{ fontWeight: 400, color: "#191c1e" }}>
-                กลยุทธ์ที่ลึกซึ้งกว่าแค่การใส่คีย์เวิร์ด
+                บริการ SEO ภาคใต้ ครบทุก Dimension
               </h2>
               <p className="text-lg text-[#3e4850] thai-leading" style={{ fontWeight: 200 }}>
-                เราผสมผสานเทคโนโลยีสมัยใหม่เข้ากับความเข้าใจในบริบทของพื้นที่ภาคใต้
-                เพื่อสร้างประสบการณ์การค้นหาที่ตอบโจทย์ผู้ใช้งานจริง
+                เราผสานเทคโนโลยี SEO ระดับสากลเข้ากับความเข้าใจตลาดภูเก็ต กระบี่ และหาดใหญ่
+                เพื่อสร้างการมองเห็นบน Google ที่ตอบโจทย์ทั้งนักท่องเที่ยวและลูกค้าในพื้นที่
               </p>
             </div>
 
@@ -244,18 +245,18 @@ export default function SEOPage() {
                 </div>
                 <div className="w-full md:w-1/2">
                   <span className="text-[#00658d] text-sm tracking-widest uppercase mb-4 block" style={{ fontWeight: 300 }}>
-                    Southern Thai Mastery
+                    Local SEO ภาคใต้
                   </span>
                   <h3 className="text-3xl text-[#191c1e] leading-tight mb-4" style={{ fontWeight: 400 }}>
-                    เข้าถึงหัวใจของตลาดภาคใต้ ด้วย Local SEO
+                    Local SEO ภูเก็ต กระบี่ หาดใหญ่ ติดอันดับใน Google Maps & Search
                   </h3>
                   <p className="text-[#3e4850] leading-relaxed mb-6 thai-leading" style={{ fontWeight: 200 }}>
-                    เจาะกลุ่มลูกค้าในพื้นที่ด้วยการทำ Google Business Profile ให้โดดเด่น
-                    และสร้างเนื้อหาที่ตอบโจทย์ Search Intent ของนักท่องเที่ยวและคนในพื้นที่ภาคใต้โดยเฉพาะ
+                    เจาะกลุ่มลูกค้าในภูเก็ต กระบี่ และหาดใหญ่ ด้วย Google Business Profile Optimization
+                    และ Hyper-local Keyword Strategy ที่ตอบโจทย์ Search Intent ของนักท่องเที่ยวและคนในพื้นที่ภาคใต้
                   </p>
                   {[
-                    "Multi-location GMB Management",
-                    "Hyper-local Keyword Strategy",
+                    "Multi-location GMB Management (ภูเก็ต · กระบี่ · หาดใหญ่)",
+                    "Hyper-local Keyword Mapping ภาษาไทย & English",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3 mb-3">
                       <span className="material-symbols-outlined" style={{ color: "#00658d" }}>check_circle</span>
@@ -276,11 +277,11 @@ export default function SEOPage() {
               {/* Left: contact info */}
               <div>
                 <h2 className="text-5xl text-[#191c1e] mb-8 leading-tight" style={{ fontWeight: 400 }}>
-                  Ready to ride <br />
-                  the <span style={{ color: "#00658d" }}>tide?</span>
+                  พร้อมติดอันดับ 1<br />
+                  บน Google <span style={{ color: "#00658d" }}>ภาคใต้?</span>
                 </h2>
                 <p className="text-xl text-[#3e4850] mb-12 thai-leading" style={{ fontWeight: 200 }}>
-                  มาวิเคราะห์เว็บไซต์ของคุณเบื้องต้นฟรี พร้อมรับคำปรึกษาจากผู้เชี่ยวชาญด้าน SEO วันนี้
+                  ให้ผู้เชี่ยวชาญรับทำ SEO ภาคใต้ของเรา วิเคราะห์เว็บไซต์และวางแผน Keyword ให้ฟรี ไม่มีข้อผูกมัด
                 </p>
                 {[
                   { icon: "call", title: "Hotline ปรึกษาฟรี", detail: "076-XXX-XXXX (สาขาภูเก็ต)" },
