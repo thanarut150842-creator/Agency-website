@@ -7,8 +7,11 @@ Node JS/
 node_modules/
 
 # Next.js
+.next/
 app-src/.next/
 app-src/out/
+out/
+tsconfig.tsbuildinfo
 
 # Stitch design files (large source assets)
 stitch-designs/
@@ -17,6 +20,9 @@ stitch-designs/
 .env
 .env.local
 .env*.local
+.claude/settings.local.json
+**/.claude/settings.local.json
+.vercel/
 
 # OS
 .DS_Store

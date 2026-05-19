@@ -1,6 +1,24 @@
 import type { NextConfig } from "next";
 
+const isProduction = process.env.VERCEL_ENV === "production";
+
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: process.cwd(),
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: isProduction ? "index, follow" : "noindex, nofollow",
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

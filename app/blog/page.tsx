@@ -1,16 +1,28 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BlogCoverImage from "@/components/BlogCoverImage";
+import SchemaBreadcrumb from "@/components/SchemaBreadcrumb";
 import { articles } from "./data/articles";
 
 const wrap = "w-full max-w-7xl mx-auto px-4 md:px-8";
 
-export const metadata = { title: "บทความ - AP Digital Agency" };
+export const metadata = {
+  title: "บทความ SEO & Digital Marketing ภาคใต้ | Surf Digital Agency",
+  description: "อัปเดตเทรนด์และกลยุทธ์ SEO และการตลาดดิจิทัลสำหรับธุรกิจในภูเก็ต กระบี่ สงขลา คลังความรู้จากทีม Surf Digital",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 export default function BlogPage() {
   return (
     <>
+      <SchemaBreadcrumb items={[
+        { name: "หน้าแรก", url: "/" },
+        { name: "บทความ", url: "/blog" },
+      ]} />
       <Navbar />
       <main className="pt-32 pb-20" style={{ backgroundColor: "#f7f9fb" }}>
         <div className={wrap}>
@@ -20,16 +32,16 @@ export default function BlogPage() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs mb-6"
               style={{ backgroundColor: "#d6e3ff", color: "#2d476f", fontWeight: 300 }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: 16 }}>auto_awesome</span>
+              <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 16 }}>auto_awesome</span>
               KNOWLEDGE HUB
             </div>
             <h1 className="text-5xl text-[#191c1e] leading-tight mb-6 tracking-tight" style={{ fontWeight: 400 }}>
-              คลังความรู้
-              <span style={{ color: "#00aeef" }}>การตลาดดิจิทัล</span>
+              คลังความรู้ SEO &{" "}
+              <span style={{ color: "#00aeef" }}>Digital Marketing ภาคใต้</span>
             </h1>
             <p className="text-lg text-[#3e4850] leading-relaxed" style={{ fontWeight: 200 }}>
-              อัปเดตเทรนด์ กลยุทธ์ และเทคนิคการทำ Digital Marketing
-              เพื่อขับเคลื่อนธุรกิจของคุณสู่ความสำเร็จในยุคดิจิทัลอย่างยั่งยืน
+              อัปเดตเทรนด์และกลยุทธ์ SEO การตลาดออนไลน์สำหรับธุรกิจในภูเก็ต กระบี่ สงขลา
+              และทั่วภาคใต้ โดยทีมผู้เชี่ยวชาญ Surf Digital Agency
             </p>
           </header>
 
@@ -93,17 +105,16 @@ export default function BlogPage() {
                     style={{ backgroundColor: "#00658d", fontWeight: 300, textDecoration: "none" }}
                   >
                     อ่านบทความ
-                    <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
+                    <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
                   </Link>
                 </div>
               </div>
               <div className="relative overflow-hidden" style={{ minHeight: "16rem" }}>
-                <Image
-                  src={articles[0].image}
-                  alt={articles[0].title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                {articles[0].image.startsWith("/") ? (
+                  <Image src={articles[0].image} alt={articles[0].title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                ) : (
+                  <BlogCoverImage title={articles[0].title} category={articles[0].category} coverKeyword={articles[0].coverKeyword} coverKeyword2={articles[0].coverKeyword2} slug={articles[0].slug} className="absolute inset-0 group-hover:scale-105 transition-transform duration-700" />
+                )}
               </div>
             </div>
           </article>
@@ -122,7 +133,11 @@ export default function BlogPage() {
                   style={{ backgroundColor: "#ffffff", borderRadius: "1.5rem", boxShadow: "0 4px 24px rgba(0,33,71,0.06)" }}
                 >
                   <div className="relative overflow-hidden" style={{ height: "13rem" }}>
-                    <Image src={a.image} alt={a.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    {a.image.startsWith("/") ? (
+                      <Image src={a.image} alt={a.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <BlogCoverImage title={a.title} category={a.category} coverKeyword={a.coverKeyword} coverKeyword2={a.coverKeyword2} slug={a.slug} className="absolute inset-0 group-hover:scale-105 transition-transform duration-500" />
+                    )}
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-4">
@@ -150,24 +165,7 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* ── Pagination ──────────────────────────────────── */}
-          <div className="flex justify-center items-center gap-4 mb-24">
-            {["chevron_left", "1", "2", "3", "chevron_right"].map((p, i) => (
-              <button
-                key={i}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
-                style={{
-                  backgroundColor: p === "1" ? "#00658d" : "#eceef0",
-                  color: p === "1" ? "#ffffff" : "#3e4850",
-                  fontWeight: 200,
-                }}
-              >
-                {p === "chevron_left" || p === "chevron_right"
-                  ? <span className="material-symbols-outlined">{p}</span>
-                  : p}
-              </button>
-            ))}
-          </div>
+          <div className="mb-24" />
 
           {/* ── Lead Form ───────────────────────────────────── */}
           <section

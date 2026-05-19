@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BlogCoverImage from "@/components/BlogCoverImage";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,10 +14,59 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (!article) return { title: "ไม่พบบทความ" };
+  // metaTitle (shorter, SEO-optimized) > title fallback
+  const seoTitle = article.metaTitle ?? article.title;
   return {
-    title: `${article.title} - AP Digital Agency`,
+    title: seoTitle,
     description: article.metaDescription,
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      locale: "th_TH",
+      url: `/blog/${slug}`,
+      siteName: "Surf Digital Agency",
+      title: seoTitle,
+      description: article.metaDescription,
+      images: [{ url: article.image, width: 1200, height: 630, alt: article.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seoTitle,
+      description: article.metaDescription,
+      images: [article.image],
+    },
   };
+}
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://surfdigitalth.com";
+
+/** Renders a content string with [[anchor text|/href]] inline link syntax */
+function RichText({ text }: { text: string }) {
+  const parts = text.split(/\[\[([^\]]+)\|([^\]]+)\]\]/g);
+  if (parts.length === 1) return <>{text}</>;
+  const nodes: React.ReactNode[] = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (i % 3 === 0) {
+      if (parts[i]) nodes.push(parts[i]);
+    } else if (i % 3 === 1) {
+      const linkText = parts[i];
+      const href = parts[i + 1];
+      nodes.push(
+        <Link
+          key={i}
+          href={href}
+          style={{ color: "#00658d", fontWeight: 300, textDecoration: "underline", textUnderlineOffset: "3px" }}
+        >
+          {linkText}
+        </Link>
+      );
+      i++; // skip href part
+    }
+  }
+  return <>{nodes}</>;
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -26,8 +76,102 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const related = articles.filter((a) => a.slug !== slug).slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE_URL}/blog/${slug}#article`,
+    headline: article.title,
+    description: article.metaDescription,
+    image: article.image,
+    url: `${SITE_URL}/blog/${slug}`,
+    datePublished: article.date,
+    dateModified: article.date,
+    inLanguage: "th",
+    author: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Surf Digital Agency",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Surf Digital Agency",
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/og-image.jpg` },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    keywords: article.tags.join(", "),
+  };
+
+  const faqSchema = article.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+
+  // HowTo Schema for tutorial-style articles (sections become steps)
+  const howToSchema = article.isHowTo
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        name: article.title,
+        description: article.metaDescription,
+        image: article.image,
+        totalTime: `PT${parseInt(article.readTime) || 7}M`,
+        step: article.sections.map((section, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: section.heading,
+          text: section.content.join(" "),
+          url: `${SITE_URL}/blog/${slug}#${section.id}`,
+        })),
+      }
+    : null;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "หน้าแรก", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "บทความ", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: article.title, item: `${SITE_URL}/blog/${slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <main className="pt-32 pb-20" style={{ backgroundColor: "#f7f9fb" }}>
 
@@ -39,7 +183,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               className="inline-flex items-center gap-2 text-sm"
               style={{ color: "#00658d", fontWeight: 200, textDecoration: "none" }}
             >
-              <span className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_back</span>
+              <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 18 }}>arrow_back</span>
               กลับสู่บทความทั้งหมด
             </Link>
           </div>
@@ -72,19 +216,23 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{ backgroundColor: "#d6e3ff", color: "#2d476f" }}
               >
-                <span className="material-symbols-outlined">person</span>
+                <span aria-hidden="true" className="material-symbols-outlined">groups</span>
               </div>
               <div>
                 <p className="text-sm text-[#191c1e]" style={{ fontWeight: 300 }}>{article.author}</p>
-                <p className="text-xs text-[#3e4850]" style={{ fontWeight: 200 }}>{article.authorRole}, AP Digital</p>
+                <p className="text-xs text-[#3e4850]" style={{ fontWeight: 200 }}>{article.authorRole}</p>
               </div>
             </div>
+
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Cover */}
           <div className="relative overflow-hidden" style={{ borderRadius: "2rem", height: "clamp(14rem, 35vw, 28rem)" }}>
-            <Image src={article.image} alt={article.title} fill className="object-cover" priority />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(0,33,71,0.15))" }} />
+            {article.image.startsWith("/") ? (
+              <Image src={article.image} alt={article.title} fill sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" priority />
+            ) : (
+              <BlogCoverImage title={article.title} category={article.category} coverKeyword={article.coverKeyword} coverKeyword2={article.coverKeyword2} slug={article.slug} className="absolute inset-0" />
+            )}
           </div>
         </div>
 
@@ -121,51 +269,123 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <div style={{ backgroundColor: "#ffffff", borderRadius: "2rem", padding: "clamp(1.25rem, 4vw, 3rem)", boxShadow: "0 4px 40px rgba(0,33,71,0.06)" }}>
 
                 {/* Intro */}
-                <p className="text-lg text-[#3e4850] thai-leading mb-10" style={{ fontWeight: 200, lineHeight: 1.8, borderLeft: "4px solid #00aeef", paddingLeft: "1.5rem" }}>
+                <p className="text-lg text-[#3e4850] thai-leading mb-6" style={{ fontWeight: 200, lineHeight: 1.8, borderLeft: "4px solid #00aeef", paddingLeft: "1.5rem" }}>
                   {article.intro}
                 </p>
 
+                {/* Inline Service CTA — after intro */}
+                {article.serviceCta && (
+                  <div
+                    className="mb-10 flex items-center gap-4 px-5 py-4"
+                    style={{ backgroundColor: "#f0f7ff", borderRadius: "0.875rem", border: "1px solid #c6dff7" }}
+                  >
+                    <span className="material-symbols-outlined flex-shrink-0" style={{ color: "#00658d", fontSize: 22 }}>arrow_circle_right</span>
+                    <p className="text-sm flex-1" style={{ color: "#3e4850", fontWeight: 200 }}>
+                      {article.serviceCta.text}
+                    </p>
+                    <Link
+                      href={article.serviceCta.href}
+                      className="flex-shrink-0 text-sm px-4 py-2 rounded-full text-white hover:opacity-90 transition-opacity"
+                      style={{ backgroundColor: "#00658d", fontWeight: 300, textDecoration: "none", whiteSpace: "nowrap" }}
+                    >
+                      {article.serviceCta.buttonText}
+                    </Link>
+                  </div>
+                )}
+
                 {/* Sections */}
-                {article.sections.map((section) => (
-                  <section key={section.id} id={section.id} className="mb-12">
-                    <h2 className="text-2xl mb-5 thai-leading" style={{ fontWeight: 400, color: "#191c1e" }}>
-                      {section.heading}
-                    </h2>
+                {article.sections.map((section, sectionIdx) => (
+                  <div key={section.id}>
+                    <section id={section.id} className="mb-12">
+                      <h2 className="text-2xl mb-5 thai-leading" style={{ fontWeight: 400, color: "#191c1e" }}>
+                        {section.heading}
+                      </h2>
 
-                    {section.content.map((para, i) => (
-                      <p key={i} className="text-[#3e4850] thai-leading mb-4" style={{ fontWeight: 200, lineHeight: 1.8 }}>
-                        {para}
-                      </p>
-                    ))}
+                      {section.content.map((para, i) => (
+                        <p key={i} className="text-[#3e4850] thai-leading mb-4" style={{ fontWeight: 200, lineHeight: 1.8 }}>
+                          <RichText text={para} />
+                        </p>
+                      ))}
 
-                    {section.bullets && (
-                      <ul className="flex flex-col gap-3 my-6">
-                        {section.bullets.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <span
-                              className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                              style={{ backgroundColor: "rgba(0,101,141,0.1)", color: "#00658d" }}
-                            >
-                              <span className="material-symbols-outlined" style={{ fontSize: 14 }}>check</span>
-                            </span>
-                            <span className="text-[#3e4850] thai-leading" style={{ fontWeight: 200, lineHeight: 1.7 }}>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      {section.bullets && (
+                        <ul className="flex flex-col gap-3 my-6">
+                          {section.bullets.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <span
+                                className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                                style={{ backgroundColor: "rgba(0,101,141,0.1)", color: "#00658d" }}
+                              >
+                                <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 14 }}>check</span>
+                              </span>
+                              <span className="text-[#3e4850] thai-leading" style={{ fontWeight: 200, lineHeight: 1.7 }}>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {section.subsections && (
+                        <div className="flex flex-col gap-6 mt-6">
+                          {section.subsections.map((sub, i) => (
+                            <div key={i} className="p-6" style={{ backgroundColor: "#f7f9fb", borderRadius: "1rem", borderLeft: "3px solid #00658d" }}>
+                              <h3 className="text-lg mb-2" style={{ fontWeight: 300, color: "#191c1e" }}>{sub.heading}</h3>
+                              <p className="text-[#3e4850] thai-leading" style={{ fontWeight: 200, lineHeight: 1.7 }}><RichText text={sub.content} /></p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </section>
+
+                    {/* Inline images — after section index 1 and 3 */}
+                    {(sectionIdx === 1 || sectionIdx === 3) && article.inlineImages && (
+                      <figure style={{ margin: "-0.5rem 0 3rem", borderRadius: "1.25rem", overflow: "hidden", boxShadow: "0 8px 32px rgba(0,33,71,0.09)" }}>
+                        <div style={{ position: "relative", height: "clamp(13rem, 28vw, 20rem)" }}>
+                          <Image
+                            src={article.inlineImages[sectionIdx === 1 ? 0 : 1].url}
+                            alt={article.inlineImages[sectionIdx === 1 ? 0 : 1].alt}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 720px"
+                            className="object-cover"
+                          />
+                        </div>
+                        <figcaption style={{
+                          padding: "0.75rem 1.25rem",
+                          backgroundColor: "#f2f4f6",
+                          display: "flex", alignItems: "flex-start", gap: "0.5rem",
+                        }}>
+                          <span className="material-symbols-outlined flex-shrink-0" style={{ fontSize: 16, color: "#00658d", marginTop: 1 }}>photo_camera</span>
+                          <span style={{ fontSize: "0.8rem", color: "#6e7881", fontWeight: 200, fontStyle: "italic", lineHeight: 1.6 }}>
+                            {article.inlineImages[sectionIdx === 1 ? 0 : 1].caption}
+                          </span>
+                        </figcaption>
+                      </figure>
                     )}
-
-                    {section.subsections && (
-                      <div className="flex flex-col gap-6 mt-6">
-                        {section.subsections.map((sub, i) => (
-                          <div key={i} className="p-6" style={{ backgroundColor: "#f7f9fb", borderRadius: "1rem", borderLeft: "3px solid #00658d" }}>
-                            <h3 className="text-lg mb-2" style={{ fontWeight: 300, color: "#191c1e" }}>{sub.heading}</h3>
-                            <p className="text-[#3e4850] thai-leading" style={{ fontWeight: 200, lineHeight: 1.7 }}>{sub.content}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </section>
+                  </div>
                 ))}
+
+                {/* Service CTA Block */}
+                {article.serviceCta && (
+                  <div
+                    className="my-10 p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+                    style={{ background: "linear-gradient(135deg, #eaf4ff 0%, #dbeeff 100%)", borderRadius: "1.25rem", border: "1px solid #b8d9f8" }}
+                  >
+                    <span className="material-symbols-outlined flex-shrink-0" style={{ color: "#00658d", fontSize: 36 }}>
+                      verified
+                    </span>
+                    <div className="flex-1">
+                      <p className="mb-3 thai-leading" style={{ fontWeight: 300, color: "#191c1e", fontSize: "1.05rem" }}>
+                        {article.serviceCta.text}
+                      </p>
+                      <Link
+                        href={article.serviceCta.href}
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-sm hover:opacity-90 transition-opacity"
+                        style={{ backgroundColor: "#00658d", fontWeight: 300, textDecoration: "none" }}
+                      >
+                        {article.serviceCta.buttonText}
+                        <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
+                      </Link>
+                    </div>
+                  </div>
+                )}
 
                 {/* FAQ */}
                 <section id="faq" className="mb-10">
@@ -215,7 +435,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   style={{ background: "linear-gradient(90deg, #00658d, #00aeef)", color: "#ffffff", fontWeight: 300, textDecoration: "none" }}
                 >
                   ปรึกษาฟรี
-                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
+                  <span aria-hidden="true" className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_forward</span>
                 </Link>
               </div>
 
@@ -276,7 +496,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               style={{ background: "linear-gradient(90deg, #00658d, #00aeef)", color: "#ffffff", fontWeight: 300, textDecoration: "none" }}
             >
               เริ่มต้นวันนี้
-              <span className="material-symbols-outlined">arrow_forward</span>
+              <span aria-hidden="true" className="material-symbols-outlined">arrow_forward</span>
             </Link>
           </section>
         </div>
